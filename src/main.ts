@@ -1,22 +1,21 @@
 import Phaser from 'phaser';
-import { HelloScene } from './scenes/HelloScene';
+import { ShootingScene } from './scenes/ShootingScene';
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   parent: 'game-container',
-  backgroundColor: '#ffffff',
+  backgroundColor: '#07111f',
   scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
-    width: 1280,
-    height: 720,
+    width: 960,
+    height: 540,
   },
-  scene: [HelloScene],
+  scene: [ShootingScene],
 };
 
 const game = new Phaser.Game(config);
 
-// HMR: src 配下を編集したら、古い Game インスタンスを破棄して作り直す
 if (import.meta.hot) {
   import.meta.hot.dispose(() => {
     game.destroy(true);
